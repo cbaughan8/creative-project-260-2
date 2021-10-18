@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dictionary-styles.css">
+    <title>Dictionary</title>
+</head>
+<body>
+    <div class="site-header">Dictionary by Carson</div>
+
+    <div class="main-body">
+        <form class="dictionary-form">
+            <label>Enter a word</label></br>
+            <input id="word-value" type="text">
+            <input id="search-word" type="submit" value="Search">
+        </form>
+        <div class="three-grid">
+            <div class="thesaurus-header grid-header">Thesaurus</div>
+            <div class="dictionary-header grid-header">Dictionary</div>
+            <div class="pronunciation-header grid-header">Pronunciation</div>
+            <div id="thesaurus" class="thesaurus-column column"></div>
+            <div id="dictionary" class="dictionary-column column"></div>
+            <div id="pronunciation" class="pronunciation-column column">
+                <!--<audio controls id="audio-container" class="audio-box">
+                    <source  src="https://lex-audio.useremarkable.com/mp3/hello_us_1_rr.mp3" type="audio/mp3">
+                </audio>-->
+            </div>
+        </div>
+
+    </div>
+
+    <div class="site-footer">
+        <a href="https://github.com/cbaughan8/creative-project-260-2">https://github.com/cbaughan8/creative-project-260-2</a>
+    </div>
+
+    <script src="my-script.js"></script>
+</body>
+<link rel="stylesheet" href="dictionary-styles.css">
+</html>
