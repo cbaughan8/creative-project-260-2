@@ -20,29 +20,40 @@ document.getElementById("search-word").addEventListener("click", function(event)
         tResults += '<h3>Word: ' + json[0].word + '</h3>';
         pResults += '<h3>Word: ' + json[0].word + '</h3>';
 
-        dResults += '<h4 class="def"><u>Definitions: </u></h4>';
-        tResults += '<h4 class="def"><u>Synonyms: </u></h4>';
+
 
         pResults += '<div class="pro">Phonetic: ' + json[0].phonetic + '</div>';
         pResults += '<audio controls id="audio-container" class="audio-box">';
         pResults += '<source src=\"' + json[0].phonetics[0].audio + '\" type=\"audio/mp3\">';
         pResults += '</audio>';
 
-        defArray = json[0].meanings[0].definitions;
-        defIndex = 0;
-        defArray.forEach(element => {
-          dResults += '<div class="definitions">' + (defIndex + 1) + '. ' + element.definition + '</div>';
-          ++defIndex;
 
-          thesArray = element.synonyms;
-          thesIndex = 0;
-          tResults += '<h4 class="def">Definition #' + (defIndex) + '</h4>';
-          thesArray.forEach(syn => {
-            tResults += '<div class="synonyms">' + (thesIndex + 1) + '. ' + syn + '</div>';
-            ++thesIndex;
+
+
+        partsArray = json[0].meanings;
+        partsArray.forEach(part => {
+          defArray = json[0].meanings[0].definitions;
+          defIndex = 0;
+          
+          dResults += '<div class="partOfSpeech">Part of Speech: ' + part.partOfSpeech + '</div>';
+          tResults += '<div class="partOfSpeech">Part of Speech: ' + part.partOfSpeech + '</div>';
+          dResults += '<h4 class="def"><u>Definitions: </u></h4>';
+          tResults += '<h4 class="def"><u>Synonyms: </u></h4>';
+          defArray.forEach(element => {
+            dResults += '<div class="definitions">' + (defIndex + 1) + '. ' + element.definition + '</div>';
+            ++defIndex;
+  
+            thesArray = element.synonyms;
+            thesIndex = 0;
+            tResults += '<h4 class="def">Definition #' + (defIndex) + '</h4>';
+            thesArray.forEach(syn => {
+              tResults += '<div class="synonyms">' + (thesIndex + 1) + '. ' + syn + '</div>';
+              ++thesIndex;
+            });
+            if (thesIndex === 0) tResults += '<div class="synonyms">No synonyms found</div>';
           });
-          if (thesIndex === 0) tResults += '<div class="synonyms">No synonyms found</div>';
         });
+        
 
 
     
